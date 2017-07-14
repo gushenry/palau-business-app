@@ -14,6 +14,7 @@ class CreateBusinesses < ActiveRecord::Migration[5.1]
       t.integer :number_part_time_employees
       t.string :tax_status
       t.string :type
+      t.integer :application_id
       t.boolean :active
 
       t.timestamps

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170714064301) do
+ActiveRecord::Schema.define(version: 20170714074600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,32 @@ ActiveRecord::Schema.define(version: 20170714064301) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "applications", force: :cascade do |t|
+    t.integer "applicant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "businesses", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "zip"
+    t.text "location"
+    t.string "phone"
+    t.string "fax"
+    t.string "email"
+    t.date "business_start_date"
+    t.boolean "receipts_over_10000"
+    t.integer "number_regular_employees"
+    t.integer "number_part_time_employees"
+    t.string "tax_status"
+    t.string "type"
+    t.integer "application_id"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -38,4 +64,6 @@ ActiveRecord::Schema.define(version: 20170714064301) do
   end
 
   add_foreign_key "applicants", "users"
+  add_foreign_key "applications", "applicants"
+  add_foreign_key "businesses", "applications"
 end
