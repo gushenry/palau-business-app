@@ -17,3 +17,12 @@
 /yarn-error.log
 
 .byebug_history
+
+# Ignore test coverage files
+/coverage
+
+# Ignore .DS_Store files that Mac OS X leaves behind
+.DS_Store
+/app/.DS_Store
+/app/assets/.DS_Store
+/app/views/.DS_Store
